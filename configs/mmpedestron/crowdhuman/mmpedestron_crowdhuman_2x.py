@@ -1,7 +1,8 @@
 # model settings
 num_dec_layer = 6
 lambda_2 = 2.0
-pretrained = 'YOUR_DTAT_ROOT_PATH/mmpedestron_models/backbone/dualvit_s_384.pth.tar'
+pretrained = '/nfs/scratch/staff/schmittth/sync/MMPedestron/models/backbone/dualvit_s_384.pth'
+pretrained = '/nfs/scratch/staff/schmittth/sync/MMPedestron/models/backbone/mmpedestron_pretrained_best_best-d02b2b88.pth'
 
 model = dict(
     type='MMPedestron',
@@ -265,7 +266,7 @@ train_pipeline = [
          },
          mod_list=['img',
                    'extra_mod_img'],
-         file_client_args=dict(backend='petrel')),
+         file_client_args=dict(backend='disk')),
     dict(type='LoadAnnotations', with_bbox=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(
@@ -362,13 +363,13 @@ test_pipeline = [
         ])
 ]
 
-ann_prefix = 'YOUR_DTAT_ROOT_PATH/mmpedestron_datasets_ann/crowdhuman_coco/'
+ann_prefix = '/nfs/scratch/staff/schmittth/sync/MMPedestron/datasets/mmpedestron_datasets_ann/crowdhuman_coco/'
 train_ann_list = [
     ann_prefix + 'annotation_train_full2coco_231020.json',  # 11
 ]
 
 img_prefix_list = [
-    'YOUR_DTAT_ROOT_PATH/mmpedestron_images/CrowdHuman',
+    '/nfs/scratch/staff/schmittth/sync/MMPedestron/datasets/mmpedestron_images/CrowdHuman',
 ]
 
 val_list = [
@@ -376,7 +377,7 @@ val_list = [
 ]
 
 val_img_prefix_list = [
-    'YOUR_DTAT_ROOT_PATH/mmpedestron_images/CrowdHuman/',
+    '/nfs/scratch/staff/schmittth/sync/MMPedestron/datasets/mmpedestron_images/CrowdHuman',
 ]
 dataset_type = 'CocoPedestronDataset'
 data = dict(
@@ -404,7 +405,7 @@ data = dict(
 
 evaluation = dict(
     interval=1, metric='bbox',
-    crowdhuman_odgt_val_gt_path='YOUR_DTAT_ROOT_PATH/mmpedestron_datasets_ann/crowdhuman_raw/annotation_val.odgt')
+    crowdhuman_odgt_val_gt_path='/nfs/scratch/staff/schmittth/sync/MMPedestron/datasets/mmpedestron_datasets_ann/crowdhuman_raw/annotation_val.odgt')
 
 optimizer = dict(
     type='AdamW',
@@ -443,7 +444,7 @@ dist_params = dict(backend='nccl',
                    # port=36666
                    )
 log_level = 'INFO'
-load_from = 'YOUR_DTAT_ROOT_PATH/mmpedestron_models/mmpedestron_pretrained_best/mmpedestron_pretrained_best_best-d02b2b88.pth'
+load_from = '/nfs/scratch/staff/schmittth/sync/MMPedestron/models/mmpedestron_crowdhuman_best-d72676b2.pth'
 resume_from = None
 workflow = [('train', 1)]
 

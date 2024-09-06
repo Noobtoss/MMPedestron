@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "tools/custom_dataset_test.py", line 124, in <module>
+    main()
+  File "tools/custom_dataset_test.py", line 94, in main
+    load_coco_dataset(annotation_file, image_dir)
+  File "tools/custom_dataset_test.py", line 37, in load_coco_dataset
+    coco = COCO(annotation_file)
+  File "/nfs/scratch/staff/schmittth/.conda/envs/MMPedestron-3.6/lib/python3.6/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+IsADirectoryError: [Errno 21] Is a directory: '/'
+srun: error: ml0: task 0: Exited with exit code 1

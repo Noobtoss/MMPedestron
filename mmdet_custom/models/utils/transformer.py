@@ -2,7 +2,7 @@
 # @Author  : BubblyYi
 # @FileName: transformer.py
 # @Software: PyCharm
-from fairscale.nn.checkpoint import checkpoint_wrapper
+# from fairscale.nn.checkpoint import checkpoint_wrapper
 from mmcv.cnn import build_norm_layer
 from mmcv.cnn.bricks.registry import TRANSFORMER_LAYER_SEQUENCE
 from mmcv.cnn.bricks.transformer import TransformerLayerSequence
@@ -32,4 +32,4 @@ class DetrTransformerEncoder_CP(TransformerLayerSequence):
         self.with_cp = with_cp
         if self.with_cp > 0:
             for i in range(self.with_cp):
-                self.layers[i] = checkpoint_wrapper(self.layers[i])
+                self.layers[i] = self.layers[i]  # checkpoint_wrapper(self.layers[i])

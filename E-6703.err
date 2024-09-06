@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "tools/custom_dataset_test.py", line 128, in <module>
+    main()
+  File "tools/custom_dataset_test.py", line 99, in main
+    8==D
+NameError: name 'D' is not defined
+srun: error: ml0: task 0: Exited with exit code 1

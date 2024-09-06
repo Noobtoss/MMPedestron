@@ -12,7 +12,8 @@ from mmdet.core import (bbox_cxcywh_to_xyxy, bbox_xyxy_to_cxcywh, multi_apply,
 from mmdet.models.builder import HEADS
 from mmdet.models.utils.transformer import inverse_sigmoid
 
-from mmdet_custom.models.co_detr_heads import DETRHead_Fix
+# from mmdet_custom.models.co_detr_heads import DETRHead_Fix
+from .detr_head import DETRHead_Fix
 
 if sys.version_info >= (3, 7):
     from mmdet.utils.contextmanagers import completed  # noqa: F401,F403
